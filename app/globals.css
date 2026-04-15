@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sky: #4a90e2;
+  --sky-light: #ebf4ff;
+  --sky-mid: #b8d9f8;
+  --sky-dark: #2563eb;
+  --coral: #ff7043;
+  --coral-light: #fff3f0;
+  --coral-mid: #ffccbc;
+  --warm: #ff8c42;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(74, 144, 226, 0.12);
+  --shadow-lg: 0 8px 40px rgba(74, 144, 226, 0.18);
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-nunito), sans-serif; }
+  h1, h2, h3, h4 { font-family: var(--font-baloo), cursive; }
+}
+
+@layer components {
+  /* Gradient text utility */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--sky), var(--coral));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card hover lift */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-1.5 rounded-full bg-gray-200 overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full rounded-full;
+    background: linear-gradient(90deg, var(--sky), var(--coral));
+    transition: width 0.4s ease;
+  }
+}
