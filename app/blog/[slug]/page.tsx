@@ -40,8 +40,8 @@ function parseTable(lines: string[], startIndex: number): { jsx: React.ReactNode
         </thead>
         <tbody>
           {rows.map((row, j) => (
-            <tr key={j} className={j % 2 === 0 ? "bg-white dark:bg-gray-900/40" : "bg-gray-50 dark:bg-gray-800/40"}>
-              {row.map((cell, k) => <td key={k} className="px-4 py-3 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700">{cell}</td>)}
+            <tr key={j} className={j % 2 === 0 ? "bg-white dark:bg-gray-800" : "bg-gray-50 dark:bg-gray-700"}>
+              {row.map((cell, k) => <td key={k} className="px-4 py-3 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-600">{cell}</td>)}
             </tr>
           ))}
         </tbody>
