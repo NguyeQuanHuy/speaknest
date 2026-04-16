@@ -17,8 +17,8 @@ export async function addXP(xp: number, words: number = 0, lessons: number = 0) 
     lessons_completed: lessons,
   }, { onConflict: "user_id,date" })
 
-  await supabase.rpc("update_streak", { p_user_id: user.id })
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+await (supabase.rpc as any)("update_streak", { p_user_id: user.id })}
 
 export async function getUserStats() {
   const supabase = createClient()
