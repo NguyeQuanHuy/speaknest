@@ -186,7 +186,8 @@ export default function TestPage() {
     <div className="min-h-screen flex items-center justify-center px-4"
       style={{ background: "linear-gradient(160deg,#EBF4FF,#FFF3F0)" }}>
         className="rounded-3xl p-8 max-w-lg w-full border shadow-xl"
-        style={{ background: "#1E293B", borderColor: "#334155" }}>
+style={{ background: "#1E293B", borderColor: "#334155" }}
+>
         {/* Progress */}
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-bold" style={{ color: "#2563EB" }}>Câu {idx + 1}/10</span>
