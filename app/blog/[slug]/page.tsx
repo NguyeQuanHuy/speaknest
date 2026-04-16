@@ -14,7 +14,7 @@ function boldify(text: string) {
 function renderLine(line: string, i: number) {
   if (line.startsWith("## ")) return <h2 key={i} className="text-2xl font-semibold mt-8 mb-3 text-gray-900 dark:text-white">{line.slice(3)}</h2>
   if (line.startsWith("### ")) return <h3 key={i} className="text-xl font-semibold mt-6 mb-2 text-gray-800 dark:text-white">{line.slice(4)}</h3>
-  if (line.startsWith("- ")) return <li key={i} className="ml-6 list-disc leading-relaxed text-gray-700 dark:text-gray-300">{line.slice(2)}</li>
+  if (line.startsWith("- ")) return <li key={i} className="ml-6 list-disc leading-relaxed text-gray-700 dark:text-gray-100" dangerouslySetInnerHTML={{__html: boldify(line.slice(2))}} />
   if (line.startsWith("> ")) return <blockquote key={i} className="border-l-4 border-amber-500 pl-4 italic my-4 bg-amber-50 dark:bg-amber-950/20 py-2 rounded-r text-gray-700 dark:text-gray-300">{line.slice(2)}</blockquote>
   if (line.startsWith("---")) return <hr key={i} className="border-gray-200 dark:border-gray-700 my-8" />
   if (line.trim() === "") return <div key={i} className="h-2" />
@@ -40,8 +40,8 @@ function parseTable(lines: string[], startIndex: number): { jsx: React.ReactNode
         </thead>
         <tbody>
           {rows.map((row, j) => (
-            <tr key={j} className={j % 2 === 0 ? "bg-white dark:bg-gray-800" : "bg-gray-50 dark:bg-gray-700"}>
-              {row.map((cell, k) => <td key={k} className="px-4 py-3 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-600">{cell}</td>)}
+            <tr key={j} className={j % 2 === 0 ? "bg-white dark:bg-slate-700" : "bg-gray-50 dark:bg-slate-600"}>
+              {row.map((cell, k) => <td key={k} className="px-4 py-3 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-600 font-medium">{cell}</td>)}
             </tr>
           ))}
         </tbody>
