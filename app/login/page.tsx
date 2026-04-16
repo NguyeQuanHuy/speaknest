@@ -47,9 +47,9 @@ export default function LoginPage() {
           <div className="flex-1 h-px bg-gray-200" />
         </div>
         <input type="email" placeholder="Email của bạn" value={email} onChange={e => setEmail(e.target.value)}
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm mb-3 outline-none focus:border-[#4A90E2]" />
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm mb-3 outline-none focus:border-sky-500" />
         <input type="password" placeholder="Mật khẩu" value={password} onChange={e => setPassword(e.target.value)}
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm mb-5 outline-none focus:border-[#4A90E2]" />
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm mb-5 outline-none focus:border-sky-500" />
         <button onClick={handleEmail} disabled={loading}
           className="w-full py-3.5 rounded-xl text-white font-bold text-sm cursor-pointer border-none"
           style={{background:"linear-gradient(135deg,#4A90E2,#2563EB)"}}>
@@ -57,7 +57,7 @@ export default function LoginPage() {
         </button>
         <p className="text-center text-sm text-gray-400 mt-5">
           Chưa có tài khoản?{" "}
-          <Link href="/signup" className="text-[#2563EB] font-bold no-underline">Đăng ký miễn phí</Link>
+          <Link href="/signup" className="text-blue-600 font-bold no-underline">Đăng ký miễn phí</Link>
         </p>
       </div>
     </div>
