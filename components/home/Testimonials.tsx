@@ -12,16 +12,15 @@ export function Testimonials() {
       <p className="text-center text-gray-400 text-sm mb-10">
         Hơn 15,000 học viên đã thay đổi tiếng Anh của mình
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-        {TESTIMONIALS.map((t, i) => (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {TESTIMONIALS.map((t, i) => (
           <motion.div
-            key={t.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-white rounded-2xl p-6 border border-sky-mid"
-          >
+            whileHover={{ y: -4 }}
+            className="bg-white rounded-2xl p-7 border border-sky-mid transition-all duration-300 hover:shadow-lg">
             <div className="text-yellow-400 text-sm mb-3">{"★".repeat(t.rating)}</div>
             {t.achievement && (
               <div className="inline-block bg-sky-light text-sky-dark text-xs font-bold px-3 py-1 rounded-full mb-3">
