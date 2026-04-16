@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { getUserStats, getWeeklyProgress } from "@/lib/streak"
 import { motion } from "framer-motion"
 import { Footer } from "@/components/ui/Footer"
 
@@ -26,7 +27,13 @@ const MY_COURSES = [
 
 export default function AccountPage() {
   const [tab, setTab] = useState("overview")
+  const [stats, setStats] = useState<any>(null)
+    const [weekData, setWeekData] = useState<any[]>([])
 
+    useEffect(() => {
+      getUserStats().then(s => s && setStats(s))
+      getWeeklyProgress().then(w => setWeekData(w))
+    }, [])
   return (
     <>
       <div className="max-w-6xl mx-auto px-8 py-8 grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6">
@@ -42,7 +49,7 @@ export default function AccountPage() {
           {/* Streak */}
           <div className="rounded-xl p-4 text-center mb-5 border border-yellow-200"
             style={{background:"linear-gradient(135deg,#FFF7ED,#FEF3C7)"}}>
-            <div className="font-head text-3xl font-extrabold text-yellow-400">🔥 28</div>
+            <div className="font-head text-3xl font-extrabold text-yellow-400">🔥 {stats?.streak ?? 0}</div>
             <div className="text-xs text-amber-800 font-semibold mt-1">Ngày streak liên tiếp!</div>
           </div>
           {/* Menu */}
