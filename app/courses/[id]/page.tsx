@@ -20,8 +20,11 @@ export default function CourseDetailPage() {
   const { id } = useParams()
   const router = useRouter()
   const course = COURSES.find(c => c.id === id)
-  const [done, setDone] = useState<number[]>([])
-
+const [done, setDone] = useState<number[]>(() => {
+  if (typeof window === "undefined") return []
+  const saved = localStorage.getItem(`done_${id}`)
+  return saved ? JSON.parse(saved) : []
+})
   if (!course) return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
@@ -35,8 +38,11 @@ export default function CourseDetailPage() {
   const handleLesson = async (lessonId: number, isFree: boolean) => {
     if (!isFree) { router.push("/pricing"); return }
     await addXP(10, 0, 1)
-    setDone(d => [...d, lessonId])
-    alert("🎉 +10 XP! Bài học hoàn thành!")
+    setDone(d => {
+    const next = [...d, lessonId]
+    localStorage.setItem(`done_${id}`, JSON.stringify(next))
+    return next
+    })    alert("🎉 +10 XP! Bài học hoàn thành!")
   }
 
   return (
