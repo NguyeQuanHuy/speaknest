@@ -185,7 +185,8 @@ export default function TestPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4"
       style={{ background: "linear-gradient(160deg,#EBF4FF,#FFF3F0)" }}>
-      <div className="bg-white rounded-3xl p-8 max-w-lg w-full border border-gray-200 shadow-xl">
+        className="rounded-3xl p-8 max-w-lg w-full border shadow-xl"
+        style={{ background: "#1E293B", borderColor: "#334155" }}>
         {/* Progress */}
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-bold" style={{ color: "#2563EB" }}>Câu {idx + 1}/10</span>
@@ -205,7 +206,7 @@ export default function TestPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}>
-            <h2 className="font-head text-lg font-extrabold mb-5" style={{ color: "#1E293B" }}>
+            <h2 className="font-head text-lg font-extrabold mb-5" style={{ color: "#F1F5F9" }}>
               {QUESTIONS[idx].q}
             </h2>
             <div className="flex flex-col gap-3 mb-6">
@@ -213,10 +214,10 @@ export default function TestPage() {
                 <button key={i} onClick={() => setSelected(i)}
                   className="px-5 py-3.5 rounded-xl text-sm font-semibold text-left cursor-pointer border-2 transition-all"
                   style={{
-                    borderColor: selected === i ? "#4A90E2" : "#E2E8F0",
-                    background: selected === i ? "#EBF4FF" : "white",
-                    color: selected === i ? "#2563EB" : "#1E293B"
-                  }}>
+                    borderColor: selected === i ? "#4A90E2" : "#334155",
+                    background: selected === i ? "#1D4ED8" : "#0F172A",
+                    color: selected === i ? "white" : "#F1F5F9"
+                    }}>
                   <span className="font-bold mr-2">{String.fromCharCode(65 + i)}.</span> {opt}
                 </button>
               ))}
