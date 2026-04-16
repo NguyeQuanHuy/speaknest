@@ -86,3 +86,26 @@ html.dark section,
 html.dark main {
   background: #0F172A !important;
 }
+
+html.dark [class*="text-gray-800"],
+html.dark h1, html.dark h2, html.dark h3,
+html.dark p, html.dark span, html.dark div {
+  color: #F1F5F9;
+}
+html.dark [class*="text-gray-600"],
+html.dark [class*="text-gray-500"],
+html.dark [class*="text-gray-400"] {
+  color: #94A3B8 !important;
+}
+html.dark .bg-white {
+  background: #1E293B !important;
+  color: #F1F5F9 !important;
+}
+html.dark [class*="bg-gray-100"],
+html.dark [class*="bg-gray-50"] {
+  background: #334155 !important;
+}
+html.dark [class*="border-gray-200"],
+html.dark [class*="border-gray-100"] {
+  border-color: #475569 !important;
+}
