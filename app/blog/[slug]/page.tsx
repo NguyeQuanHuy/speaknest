@@ -7,23 +7,25 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
+function boldify(text: string) {
+  return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+}
+
 function renderLine(line: string, i: number) {
   if (line.startsWith("## ")) return <h2 key={i} className="text-2xl font-semibold mt-8 mb-3 text-gray-900 dark:text-white">{line.slice(3)}</h2>
   if (line.startsWith("### ")) return <h3 key={i} className="text-xl font-semibold mt-6 mb-2 text-gray-800 dark:text-white">{line.slice(4)}</h3>
   if (line.startsWith("- ")) return <li key={i} className="ml-6 list-disc leading-relaxed text-gray-700 dark:text-gray-300">{line.slice(2)}</li>
   if (line.startsWith("> ")) return <blockquote key={i} className="border-l-4 border-amber-500 pl-4 italic my-4 bg-amber-50 dark:bg-amber-950/20 py-2 rounded-r text-gray-700 dark:text-gray-300">{line.slice(2)}</blockquote>
   if (line.startsWith("---")) return <hr key={i} className="border-gray-200 dark:border-gray-700 my-8" />
-  if (line.startsWith("|")) return null
   if (line.trim() === "") return <div key={i} className="h-2" />
-  const bold = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-  return <p key={i} className="text-gray-700 dark:text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{__html: bold}} />
+  return <p key={i} className="text-gray-700 dark:text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{__html: boldify(line)}} />
 }
 
 function parseTable(lines: string[], startIndex: number): { jsx: React.ReactNode, endIndex: number } {
   const tableLines = []
   let i = startIndex
-  while (i < lines.length && lines[i].startsWith("|")) {
-    tableLines.push(lines[i])
+  while (i < lines.length && (lines[i].startsWith("|") || lines[i].trim() === "")) {
+    if (lines[i].startsWith("|")) tableLines.push(lines[i])
     i++
   }
   const headers = tableLines[0].split("|").filter(c => c.trim()).map(c => c.trim())
@@ -38,7 +40,7 @@ function parseTable(lines: string[], startIndex: number): { jsx: React.ReactNode
         </thead>
         <tbody>
           {rows.map((row, j) => (
-            <tr key={j} className={j % 2 === 0 ? "bg-white dark:bg-gray-900/40" : "bg-gray-50 dark:bg-gray-800/20"}>
+            <tr key={j} className={j % 2 === 0 ? "bg-white dark:bg-gray-900/40" : "bg-gray-50 dark:bg-gray-800/40"}>
               {row.map((cell, k) => <td key={k} className="px-4 py-3 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700">{cell}</td>)}
             </tr>
           ))}
