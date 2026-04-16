@@ -1,8 +1,8 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { notFound } from 'next/navigation'
+import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import { notFound } from "next/navigation"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -10,9 +10,9 @@ interface Props {
 
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params
-  const filePath = path.join(process.cwd(), 'src/content/blog', slug + '.mdx')
+  const filePath = path.join(process.cwd(), "src/content/blog", slug + ".mdx")
   if (!fs.existsSync(filePath)) notFound()
-  const raw = fs.readFileSync(filePath, 'utf-8')
+  const raw = fs.readFileSync(filePath, "utf-8")
   const { content, data } = matter(raw)
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
