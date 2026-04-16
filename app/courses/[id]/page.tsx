@@ -136,11 +136,19 @@ export default function CourseDetailPage() {
         {/* Font to hơn, đậm hơn */}
         <h1
           className="font-head font-extrabold mb-3"
-          style={{ fontSize: "clamp(24px,4vw,36px)", color: "#0F172A", fontWeight: 900, textShadow: "0 2px 8px rgba(255,255,255,0.8)" }}>
+          style={{
+            fontSize: "clamp(24px,4vw,36px)",
+            color: "#0F172A",
+            fontWeight: 900,
+            textShadow: "0 2px 8px rgba(255,255,255,0.8)",
+          }}
         >
           {course.title}
         </h1>
-        <p className="max-w-lg mx-auto mb-5 text-sm font-medium" style={{ color: "#1E293B", fontWeight: 600 }}>
+        <p
+          className="max-w-lg mx-auto mb-5 text-sm font-medium"
+          style={{ color: "#1E293B", fontWeight: 600 }}
+        >
           {course.description}
         </p>
 
@@ -158,7 +166,10 @@ export default function CourseDetailPage() {
         </div>
 
         {/* Course meta */}
-        <div className="flex items-center justify-center gap-6 text-sm font-bold" style={{ color: "#1E293B" }}>
+        <div
+          className="flex items-center justify-center gap-6 text-sm font-bold"
+          style={{ color: "#1E293B" }}
+        >
           <span>📚 {course.total_lessons} bài học</span>
           <span>⏱️ ~{course.total_lessons * 11} phút</span>
           <span>{course.is_free ? "🆓 Miễn phí" : "⭐ Pro"}</span>
