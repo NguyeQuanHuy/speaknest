@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { createClient } from "@/lib/supabase"
 import { cn } from "@/lib/utils"
+import { useDarkMode } from "./DarkModeProvider"
 
 const NAV_LINKS = [
   { href: "/", label: "Trang chủ" },
@@ -16,6 +17,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const pathname = usePathname()
+  const { dark, toggle } = useDarkMode()
   const router = useRouter()
   const supabase = createClient()
   const [user, setUser] = useState<any>(null)
@@ -79,6 +81,10 @@ export function Navbar() {
             Đăng nhập
           </Link>
         )}
+        <button onClick={toggle}
+        className="w-9 h-9 rounded-xl flex items-center justify-center border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer text-base transition-all">
+        {dark ? "☀️" : "🌙"}
+        </button>
         <Link href="/pricing"
           className="text-sm font-bold text-white px-5 py-2.5 rounded-xl no-underline transition-all hover:-translate-y-0.5"
           style={{ background: "linear-gradient(135deg, #4A90E2, #2563EB)", boxShadow: "0 4px 14px rgba(74,144,226,0.35)" }}>
