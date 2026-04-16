@@ -1,25 +1,27 @@
-import type { Metadata } from "next";
-import { Nunito, Baloo_2 } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/components/ui/Navbar";
-import { DarkModeProvider } from "@/components/ui/DarkModeProvider";
+import type { Metadata } from "next"
+import { Nunito, Baloo_2 } from "next/font/google"
+import "./globals.css"
+import { Navbar } from "@/components/ui/Navbar"
+import { DarkModeProvider } from "@/components/ui/DarkModeProvider"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 const nunito = Nunito({
   subsets: ["latin", "vietnamese"],
   variable: "--font-nunito",
   display: "swap",
-});
+})
 
 const baloo = Baloo_2({
   subsets: ["latin", "vietnamese"],
   variable: "--font-baloo",
   display: "swap",
-});
+})
 
 export const metadata: Metadata = {
   title: "SpeakNest – Học tiếng Anh cho người Việt",
-  description: "Nền tảng học tiếng Anh hiện đại, thân thiện, hiệu quả – được thiết kế đặc biệt cho người Việt.",
-};
+  description:
+    "Nền tảng học tiếng Anh hiện đại, thân thiện, hiệu quả – được thiết kế đặc biệt cho người Việt.",
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -30,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
         </DarkModeProvider>
       </body>
+      <GoogleAnalytics gaId="G-4MTLEQM3VY" />
     </html>
-  );
+  )
 }
