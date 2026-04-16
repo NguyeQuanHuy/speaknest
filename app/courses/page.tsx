@@ -4,9 +4,16 @@ export const metadata = { title: "Khóa học – SpeakNest" }
 export default function CoursesPage() {
   return (
     <>
-      <div className="text-center py-12 px-8" style={{background:"linear-gradient(160deg,#EBF4FF 0%,#FFF3F0 100%)"}}>
-        <h1 className="font-head text-4xl font-extrabold mb-2">📚 Khóa học của SpeakNest</h1>
-        <p className="text-gray-600">Từ người mới bắt đầu đến IELTS 8.0 – mọi lộ trình đều có tại đây</p>
+      <div
+        className="text-center py-12 px-8"
+        style={{ background: "linear-gradient(160deg,#EBF4FF 0%,#FFF3F0 100%)" }}
+      >
+        <h1 className="font-head text-4xl font-extrabold mb-2" style={{ color: "#1E293B" }}>
+          📚 Khóa học của SpeakNest
+        </h1>
+        <p style={{ color: "#475569" }}>
+          Từ người mới bắt đầu đến IELTS 8.0 – mọi lộ trình đều có tại đây
+        </p>
       </div>
       <CourseGrid />
       <Footer />
