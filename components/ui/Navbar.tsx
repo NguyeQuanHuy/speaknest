@@ -52,8 +52,8 @@ export function Navbar() {
 
       {/* CTA */}
       <div className="flex items-center gap-3">
-        <Link href="/account" className="hidden md:block text-sm font-semibold text-gray-600 hover:text-sky-dark transition-colors no-underline">
-          Đăng nhập
+        <Link href="/login" className="hidden md:block text-sm font-semibold text-gray-600 hover:text-sky-dark transition-colors no-underline">
+        Đăng nhập
         </Link>
         <Link
           href="/pricing"
