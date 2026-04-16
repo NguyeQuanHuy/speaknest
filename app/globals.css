@@ -52,3 +52,37 @@
     transition: width 0.4s ease;
   }
 }
+
+/* Dark mode */
+html.dark {
+  background: #0F172A;
+  color-scheme: dark;
+}
+html.dark body {
+  background: #0F172A !important;
+  color: #F1F5F9 !important;
+}
+html.dark nav {
+  background: rgba(15,23,42,0.95) !important;
+  border-color: #334155 !important;
+}
+html.dark .bg-white,
+html.dark [class*="bg-white"] {
+  background-color: #1E293B !important;
+}
+html.dark [class*="border-gray-200"] {
+  border-color: #334155 !important;
+}
+html.dark [class*="text-gray-800"] {
+  color: #F1F5F9 !important;
+}
+html.dark [class*="text-gray-600"] {
+  color: #94A3B8 !important;
+}
+html.dark [class*="text-gray-400"] {
+  color: #64748B !important;
+}
+html.dark section,
+html.dark main {
+  background: #0F172A !important;
+}
