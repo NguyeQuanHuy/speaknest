@@ -43,10 +43,10 @@ const handleLesson = (lessonId: number, isFree: boolean) => {
   return (
     <>
       {/* Header */}
-      <div className="py-12 px-8 text-center" style={{ background: course.banner_gradient }}>
+        <div className="py-16 px-8 text-center" style={{ background: course.banner_gradient }}>
         <div className="text-6xl mb-4">{course.thumbnail_emoji}</div>
-        <h1 className="font-head text-3xl font-extrabold mb-2">{course.title}</h1>
-        <p className="text-gray-600 max-w-lg mx-auto mb-4">{course.description}</p>
+        <h1 className="font-head text-3xl font-extrabold mb-2 text-gray-900">{course.title}</h1>
+        <p className="text-gray-700 max-w-lg mx-auto mb-4">{course.description}</p>
         <div className="flex gap-2 justify-center flex-wrap">
           {course.tags.map(t => (
             <span key={t} className="bg-white text-[#2563EB] text-xs font-bold px-3 py-1 rounded-full">{t}</span>
@@ -55,7 +55,7 @@ const handleLesson = (lessonId: number, isFree: boolean) => {
       </div>
 
       {/* Lessons */}
-      <div className="max-w-3xl mx-auto px-8 py-10">
+        <div className="max-w-3xl mx-auto px-8 py-14">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-head text-xl font-extrabold">Danh sách bài học</h2>
           <Link href="/courses" className="text-sm text-gray-400 hover:text-[#2563EB] no-underline">← Quay lại</Link>
@@ -90,9 +90,9 @@ const handleLesson = (lessonId: number, isFree: boolean) => {
                 className={`text-xs font-bold px-4 py-2 rounded-xl cursor-pointer border-none transition-all
                   ${done.includes(lesson.id)
                     ? "bg-green-100 text-green-700"
-                    : lesson.free
-                    ? "bg-[#EBF4FF] text-[#2563EB] hover:bg-[#4A90E2] hover:text-white"
-                    : "bg-yellow-50 text-yellow-700 hover:bg-yellow-500 hover:text-white"}`}>
+                    lesson.free
+                ? "bg-[#4A90E2] text-white hover:bg-[#2563EB]"
+                : "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
                 {done.includes(lesson.id) ? "✅ Xong" : lesson.free ? "Học ngay" : "🔒 Pro"}
               </button>
             </div>
