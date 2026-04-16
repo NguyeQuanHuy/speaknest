@@ -177,9 +177,39 @@ export default function CourseDetailPage() {
             backdropFilter: "blur(8px)",
           }}
         >
-          <span>📚 {course.total_lessons} bài học</span>
-          <span>⏱️ ~{course.total_lessons * 11} phút</span>
-          <span>{course.is_free ? "🆓 Miễn phí" : "⭐ Pro"}</span>
+          <span
+            style={{
+              background: "rgba(255,255,255,0.9)",
+              color: "#1E293B",
+              padding: "4px 14px",
+              borderRadius: 100,
+              fontWeight: 700,
+            }}
+          >
+            📚 {course.total_lessons} bài học
+          </span>
+          <span
+            style={{
+              background: "rgba(255,255,255,0.9)",
+              color: "#1E293B",
+              padding: "4px 14px",
+              borderRadius: 100,
+              fontWeight: 700,
+            }}
+          >
+            ⏱️ ~{course.total_lessons * 11} phút
+          </span>
+          <span
+            style={{
+              background: "rgba(255,255,255,0.9)",
+              color: "#1E293B",
+              padding: "4px 14px",
+              borderRadius: 100,
+              fontWeight: 700,
+            }}
+          >
+            {course.is_free ? "🆓 Miễn phí" : "⭐ Pro"}
+          </span>
         </div>
       </div>
 
