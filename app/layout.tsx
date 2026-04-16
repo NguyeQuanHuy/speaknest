@@ -17,6 +17,14 @@ const baloo = Baloo_2({
   display: "swap",
 })
 
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export const metadata: Metadata = {
   title: "SpeakNest – Học tiếng Anh cho người Việt",
   description:
