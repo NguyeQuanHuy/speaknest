@@ -98,11 +98,11 @@ export function CourseGrid() {
         <p className="text-sm mb-4" style={{ color: "#475569" }}>
           Làm bài test trình độ miễn phí – nhận lộ trình học cá nhân trong 2 phút!
         </p>
-        <button
-          className="text-white font-bold px-7 py-3 rounded-2xl cursor-pointer border-none hover:opacity-90 transition-all"
-          style={{ background: "linear-gradient(135deg,#4A90E2,#2563EB)", boxShadow: "0 4px 18px rgba(74,144,226,0.4)" }}>
-          Làm bài test trình độ miễn phí 🎯
-        </button>
+        <Link href="/test"
+        className="inline-block text-white font-bold px-7 py-3 rounded-2xl no-underline hover:opacity-90 transition-all"
+        style={{ background: "linear-gradient(135deg,#4A90E2,#2563EB)", boxShadow: "0 4px 18px rgba(74,144,226,0.4)" }}>
+        Làm bài test trình độ miễn phí 🎯
+      </Link>
       </div>
     </div>
   )
