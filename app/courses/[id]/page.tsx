@@ -108,7 +108,7 @@ export default function CourseDetailPage() {
   return (
     <div
       className="min-h-screen"
-      style={{ background: "linear-gradient(160deg,#F8FAFF 0%,#F0F4FF 100%)" }}
+      style={{ background: "var(--page-bg, linear-gradient(160deg,#F8FAFF 0%,#F0F4FF 100%))" }}
     >
       {/* Banner – font đậm hơn, title to hơn */}
       <div
@@ -136,15 +136,11 @@ export default function CourseDetailPage() {
         {/* Font to hơn, đậm hơn */}
         <h1
           className="font-head font-extrabold mb-3"
-          style={{
-            fontSize: "clamp(24px,4vw,36px)",
-            color: "#1E293B",
-            textShadow: "0 1px 2px rgba(255,255,255,0.5)",
-          }}
+          style={{ fontSize: "clamp(24px,4vw,36px)", color: "#0F172A", fontWeight: 900, textShadow: "0 2px 8px rgba(255,255,255,0.8)" }}>
         >
           {course.title}
         </h1>
-        <p className="max-w-lg mx-auto mb-5 text-sm font-medium" style={{ color: "#334155" }}>
+        <p className="max-w-lg mx-auto mb-5 text-sm font-medium" style={{ color: "#1E293B", fontWeight: 600 }}>
           {course.description}
         </p>
 
@@ -162,10 +158,7 @@ export default function CourseDetailPage() {
         </div>
 
         {/* Course meta */}
-        <div
-          className="flex items-center justify-center gap-6 text-sm font-semibold"
-          style={{ color: "#475569" }}
-        >
+        <div className="flex items-center justify-center gap-6 text-sm font-bold" style={{ color: "#1E293B" }}>
           <span>📚 {course.total_lessons} bài học</span>
           <span>⏱️ ~{course.total_lessons * 11} phút</span>
           <span>{course.is_free ? "🆓 Miễn phí" : "⭐ Pro"}</span>
