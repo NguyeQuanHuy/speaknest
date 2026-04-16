@@ -5,6 +5,15 @@ import { motion } from "framer-motion"
 import { COURSES } from "@/lib/data"
 import type { CourseCategory } from "@/types"
 
+const COURSE_IMAGES: Record<string, string> = {
+  "daily-conversation": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
+  "ielts-mastery": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80",
+  "toeic-900": "https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=600&q=80",
+  "business-english": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+  "absolute-beginner": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80",
+  "travel-english": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&q=80",
+}
+
 const FILTERS: { label: string; value: "all" | CourseCategory }[] = [
   { label: "Tất cả", value: "all" },
   { label: "Giao tiếp", value: "conversation" },
@@ -52,17 +61,20 @@ export function CourseGrid() {
             style={{ background: "white", borderColor: "#E2E8F0" }}
           >
             {/* Banner */}
-            <div
-              className="h-28 flex items-center justify-center overflow-hidden"
-              style={{ background: c.banner_gradient }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.15 }}
-                transition={{ duration: 0.3 }}
-                className="text-4xl"
-              >
-                {c.thumbnail_emoji}
-              </motion.div>
+            <div className="h-40 relative overflow-hidden">
+              <img
+                src={
+                  COURSE_IMAGES[c.id] ??
+                  `https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&q=80`
+                }
+                alt={c.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                className="absolute inset-0 opacity-30"
+                style={{ background: c.banner_gradient }}
+              />
+              <div className="absolute top-3 left-3 text-3xl">{c.thumbnail_emoji}</div>
             </div>
 
             <div className="p-5">
