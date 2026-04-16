@@ -168,7 +168,14 @@ export default function CourseDetailPage() {
         {/* Course meta */}
         <div
           className="flex items-center justify-center gap-6 text-sm font-bold"
-          style={{ color: "#1E293B" }}
+          style={{
+            color: "#0F172A",
+            background: "rgba(255,255,255,0.7)",
+            padding: "8px 20px",
+            borderRadius: 100,
+            display: "inline-flex",
+            backdropFilter: "blur(8px)",
+          }}
         >
           <span>📚 {course.total_lessons} bài học</span>
           <span>⏱️ ~{course.total_lessons * 11} phút</span>
