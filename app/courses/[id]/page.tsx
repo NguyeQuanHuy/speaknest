@@ -92,8 +92,8 @@ const handleLesson = (lessonId: number, isFree: boolean) => {
                     ? "bg-green-100 text-green-700"
                     : lesson.free
                     ? "bg-[#4A90E2] text-white hover:bg-[#2563EB]"
-                    : "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
-                {done.includes(lesson.id) ? "✅ Xong" : lesson.free ? "Học ngay" : "🔒 Pro"}
+                    : "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"}`}>
+                    {done.includes(lesson.id) ? "✅ Xong" : lesson.free ? "Học ngay" : "🔒 Pro"}
               </button>
             </div>
           ))}
