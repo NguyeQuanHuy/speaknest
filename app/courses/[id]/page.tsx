@@ -42,7 +42,8 @@ const [done, setDone] = useState<number[]>(() => {
     const next = [...d, lessonId]
     localStorage.setItem(`done_${id}`, JSON.stringify(next))
     return next
-    })    alert("🎉 +10 XP! Bài học hoàn thành!")
+  })
+    alert("🎉 +10 XP! Bài học hoàn thành!")
   }
 
   return (
