@@ -35,16 +35,10 @@ const [done, setDone] = useState<number[]>(() => {
     </div>
   )
 
-  const handleLesson = async (lessonId: number, isFree: boolean) => {
-    if (!isFree) { router.push("/pricing"); return }
-    await addXP(10, 0, 1)
-    setDone(d => {
-    const next = [...d, lessonId]
-    localStorage.setItem(`done_${id}`, JSON.stringify(next))
-    return next
-  })
-    alert("🎉 +10 XP! Bài học hoàn thành!")
-  }
+const handleLesson = (lessonId: number, isFree: boolean) => {
+  if (!isFree) { router.push("/pricing"); return }
+  router.push(`/courses/${id}/${lessonId}`)
+}
 
   return (
     <>
