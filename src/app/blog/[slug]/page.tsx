@@ -11,6 +11,8 @@ interface Props {
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params
   const filePath = path.join(process.cwd(), "src/content/blog", slug + ".mdx")
+  const fileExists = fs.existsSync(filePath)
+  if (fileExists === false) notFound()
   const raw = fs.readFileSync(filePath, "utf-8")
   const { content, data } = matter(raw)
   return (
