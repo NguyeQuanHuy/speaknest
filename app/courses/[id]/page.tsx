@@ -88,11 +88,11 @@ const handleLesson = (lessonId: number, isFree: boolean) => {
               )}
               <button onClick={() => handleLesson(lesson.id, lesson.free)}
                 className={`text-xs font-bold px-4 py-2 rounded-xl cursor-pointer border-none transition-all
-                  ${done.includes(lesson.id)
+               ${done.includes(lesson.id)
                     ? "bg-green-100 text-green-700"
-                    lesson.free
-                ? "bg-[#4A90E2] text-white hover:bg-[#2563EB]"
-                : "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
+                    : lesson.free
+                    ? "bg-[#4A90E2] text-white hover:bg-[#2563EB]"
+                    : "bg-yellow-400 text-yellow-900 hover:bg-yellow-500"
                 {done.includes(lesson.id) ? "✅ Xong" : lesson.free ? "Học ngay" : "🔒 Pro"}
               </button>
             </div>
